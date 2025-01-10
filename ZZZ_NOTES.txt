@@ -3,6 +3,38 @@
 3. documentation: nestjs swagger package: https://youtu.be/DG0uZ0E8DBs?si=vu9lK8jGKMzdkxSS
 =========
 
+
+>> project structure inside src folder:
+    >> modules: core application modules
+    >> common: cross cutting, not bound to specific module.
+                ### NOTE: we put only those things (ex gaurds) that are really common in various modules. otherwise prefer defining within the modules only.
+                
+                constants
+                enums
+                Guards (e.g., authentication or roles)
+                filters
+                Custom pipes
+                Global services
+                Interceptors
+                Decorators
+                Exceptions
+                
+    >> shared: domain specific(modules basically) code that may be used by multiple other modules.
+                databasemodule
+                loggermodule
+                cachemodule
+    >> config:
+        >> configuration files only
+
+    + we can have below folders as well as per need:
+        filters/             # Global exception filters
+        pipes/               # Custom pipes for validation or transformation
+        guards/              # Custom guards for authorization/authentication
+        interceptors/        # Interceptors for logging or response manipulation
+        utils/      
+
+
+
 >>   // const configService = app.get(ConfigService); // in nest managed classes, we could simply use dependency injection to get ConfigService, but here in main.ts, we do it this way.
 >> dto validation:
     >> npm i --save class-validator class-transformer

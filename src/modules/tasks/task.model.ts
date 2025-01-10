@@ -1,6 +1,6 @@
 import { AutoIncrement, Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
-import {TaskPriority} from '../common/enums/task-priority.enum';
-import {TaskStatus} from '../common/enums/task-status.enum'
+import {TaskPriority} from '../../common/enums/task-priority.enum';
+import {TaskStatus} from '../../common/enums/task-status.enum'
 
 @Table({
     timestamps:true

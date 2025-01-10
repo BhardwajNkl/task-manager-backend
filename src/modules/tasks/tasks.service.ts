@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Task } from './task.model';
-import { CreateTaskDto } from './dtos/create-task.dto';
-import { UpdateTaskDto } from './dtos/update-task.dto';
+import { CreateTaskDto } from '../tasks/dtos/create-task.dto';
+import { UpdateTaskDto } from '../tasks/dtos/update-task.dto';
 
 @Injectable()
 export class TasksService {
