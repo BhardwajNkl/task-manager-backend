@@ -1,0 +1,6 @@
+1. app graph or modules graph
+2. logging best practices: check
+3. documentation: nestjs swagger package: https://youtu.be/DG0uZ0E8DBs?si=vu9lK8jGKMzdkxSS
+=========
+
+>>   // const configService = app.get(ConfigService); // in nest managed classes, we could simply use dependency injection to get ConfigService, but here in main.ts, we do it this way.
