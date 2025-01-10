@@ -6,7 +6,9 @@ import { UpdateTaskDto } from './dtos/update-task.dto';
 
 @Controller('tasks')
 export class TasksController {
-    constructor(private readonly tasksService: TasksService){}
+    constructor(
+        private readonly tasksService: TasksService,
+    ){}
 
     @Post()
     async createTask(@Body(ValidationPipe) createTaskDto: CreateTaskDto):Promise<Task>{

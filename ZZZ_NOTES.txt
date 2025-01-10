@@ -115,3 +115,11 @@ async deleteTask(id:number):Promise<void>{
     }
 
 ## why do we get deleted response back in case of code 2.
+
+
+===================================== logging
+>> see config folder + shared folder
+>> 2 files are generated in root: combined.log, error.log
+>> we have enabled on app modules, so we can use in any class under this.
+    >> @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger
+    >> this.logger.info("API HIT: GET TASKS")
