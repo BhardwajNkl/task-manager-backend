@@ -3,7 +3,7 @@ import {TaskPriority} from '../common/enums/task-priority.enum';
 import {TaskStatus} from '../common/enums/task-status.enum'
 
 @Table({
-    timestamps:false
+    timestamps:true
 })
 export class Task extends Model {
     @PrimaryKey
@@ -32,18 +32,4 @@ export class Task extends Model {
         allowNull: false,
       })
     priority:TaskPriority;
-
-    @Column({
-        type: DataType.DATE,
-        allowNull: false,
-        defaultValue: DataType.NOW, // Set default value to the current timestamp
-      })
-      created_at: Date;
-
-      @Column({
-        type: DataType.DATE,
-        allowNull: false,
-        defaultValue: DataType.NOW, // Set default value to the current timestamp
-      })
-      updated_at: Date;
 }
