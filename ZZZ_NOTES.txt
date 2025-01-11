@@ -124,6 +124,8 @@ async deleteTask(id:number):Promise<void>{
     >> @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger
     >> this.logger.info("API HIT: GET TASKS")
 
+>> in this app we are logging request response. we have done this in an interceptor.
+
 
 ================= environemnt + config
 >> npm install @nestjs/config dotenv
@@ -140,3 +142,12 @@ SequelizeModule.forRootAsync({
 })
 
 ## same for winston module too.
+
+====================== interceptor
+>> know the concept already.
+>> next.handle() is the point when your control method is invoked.
+    >> so anything that you want to do before controller's handling, do it before next.handle
+    >> and anything that you want to after controller's return, do in next.handle().pipe()
+>> i have created in interceptors folder. and applied for test on task controller.
+    >> it works. let's apply this globally in main.ts.
+
