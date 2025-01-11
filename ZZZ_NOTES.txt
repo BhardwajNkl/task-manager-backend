@@ -123,3 +123,20 @@ async deleteTask(id:number):Promise<void>{
 >> we have enabled on app modules, so we can use in any class under this.
     >> @Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger
     >> this.logger.info("API HIT: GET TASKS")
+
+
+================= environemnt + config
+>> npm install @nestjs/config dotenv
+>> nest config module. set Global
+>> at last work on env-validator too[optional but best practice]
+
+
+===========
+IMPORTANT: 2 ways
+// SequelizeModule.forRoot(sequelizeModuleOptionsObject) // used when no need to inject config service. i.e., when fix values are used.
+SequelizeModule.forRootAsync({
+    inject:[ConfigService],
+    useFactory:(configService:ConfigService)=> getSequelizeModuleOptions(configService)
+})
+
+## same for winston module too.

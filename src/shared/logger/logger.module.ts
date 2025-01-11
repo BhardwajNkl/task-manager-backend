@@ -1,10 +1,14 @@
 import { Module } from "@nestjs/common";
 import { WinstonModule } from "nest-winston";
-import {winstonLogger} from '../../config/winston-logger.config';
+import {getWinstonLogger} from '../../config/winston-logger.config';
+import { ConfigService } from "@nestjs/config";
 
 @Module({
     imports:[
-        WinstonModule.forRoot(winstonLogger) // this is a hardcode configuration. see if we can use environement in that file.
+        WinstonModule.forRootAsync({
+            inject:[ConfigService],
+            useFactory:(configService:ConfigService)=>getWinstonLogger(configService)
+        })
     ],
     providers:[],
     exports:[WinstonModule]

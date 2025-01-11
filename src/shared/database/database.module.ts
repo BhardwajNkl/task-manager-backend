@@ -1,10 +1,14 @@
 import { Module } from "@nestjs/common";
 import { SequelizeModule } from "@nestjs/sequelize";
-import {sequelizeConfig} from '../../config/sequelize.config';
+import {getSequelizeConfig} from '../../config/sequelize.config';
+import { ConfigService } from "@nestjs/config";
 
 @Module({
     imports: [
-        SequelizeModule.forRoot(sequelizeConfig) // this is a hardcode configuration. see if we can use environement in that file.
+        SequelizeModule.forRootAsync({
+            inject:[ConfigService],
+            useFactory:(configService:ConfigService)=> getSequelizeConfig(configService)
+        })
     ],
     providers: [],
     exports: [SequelizeModule]
