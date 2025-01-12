@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseInterceptors, ValidationPipe } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dtos/create-task.dto';
 import { Task } from './task.model';
 import { UpdateTaskDto } from './dtos/update-task.dto';
+import { CacheInterceptor, CacheTTL } from '@nestjs/cache-manager';
 
 @Controller('tasks')
+@UseInterceptors(CacheInterceptor)
+@CacheTTL(60000) // 1 Minute expiration.
 export class TasksController {
     constructor(
         private readonly tasksService: TasksService,
