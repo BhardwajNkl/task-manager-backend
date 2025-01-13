@@ -218,3 +218,17 @@ providers: [
 >> the module is made global.
 
 >> MERGE IN CACHING BRANCH. THEN MERGE CACHING IN MAIN.
+
+
+=============== PM2 DEPLOYMENT =============
+>> npm install -g pm2
+>> npm run build
+>> pm2 start dist/main.js --name "nestjs-app"
+    >> pm2 list
+    >> pm2 monit
+    >> pm2 stop/delete id/name.
+
+>> using config file:
+    >> pm2 start/stop/delete ecosystem.config.ts
+    >> pm2 list
+    >> pm2 monit
