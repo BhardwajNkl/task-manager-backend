@@ -212,3 +212,9 @@ providers: [
 ### IMPORTANT:
     >> your app is running. and suddenly redis server is down. this crashes the app. see how to fix.
     >> see why ttl default ttl is not working.
+
+========== RABBIT MESSAGING
+>> done in rabbit manager module
+>> the module is made global.
+
+>> MERGE IN CACHING BRANCH. THEN MERGE CACHING IN MAIN.

@@ -3,14 +3,21 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Task } from './task.model';
 import { CreateTaskDto } from '../tasks/dtos/create-task.dto';
 import { UpdateTaskDto } from '../tasks/dtos/update-task.dto';
+import { RabbitManagerService } from 'src/shared/rabbit-manager/rabbit-manager.service';
 
 @Injectable()
 export class TasksService {
-    constructor(@InjectModel(Task) private readonly taskModel: typeof Task){}
+    constructor(
+        @InjectModel(Task) private readonly taskModel: typeof Task,
+        private readonly rabbitManagerService: RabbitManagerService
+    ){}
 
     async createTask(createTaskDto: CreateTaskDto):Promise<Task>{
         const newTask = this.taskModel.build({...createTaskDto});
-        return newTask.save(); // no await as we dont need further processing here. returns a promise.
+        await newTask.save();
+        // Publish a message to the queue.
+        await this.rabbitManagerService.publish("task_notification_q", `Task created. Task id:${newTask.id}`);
+        return newTask;
     }
 
     async getTasks():Promise<Task[]>{
@@ -30,7 +37,11 @@ export class TasksService {
         if(!task){
             throw new NotFoundException(`Task does not exist!`);
         }
-        return task.update({...updateTaskDto}); // no need of await
+        await task.update({...updateTaskDto});
+
+        // Publish a message to the queue.
+        await this.rabbitManagerService.publish("task_notification_q", `Task updated. Task id:${task.id}`);
+        return task;
     }
 
     async deleteTask(id:number):Promise<void>{
@@ -39,5 +50,8 @@ export class TasksService {
             throw new NotFoundException(`Task does not exist`);
         }
         await task.destroy();
+        
+        // Publish a message to the queue.
+        this.rabbitManagerService.publish("task_notification_q", `Task deleted! Task id: ${id}`);
     }
 }
