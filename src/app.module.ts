@@ -11,13 +11,13 @@ import { RabbitManagerModule } from './shared/rabbit-manager/rabbit-manager.modu
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal:true
+      isGlobal:true // 
     }),
-    DataBaseModule, // Database module uses the sequelize module and exports it.
-    LoggerModule, // Logger module uses the winston module and exports it.
-    CacheConfigModule, // Cache config module uses CacheModule and exports it. It is global.
-    RabbitManagerModule,
-    TasksModule,
+    DataBaseModule, // DataBaseModule configures the 'SequelizeModule' with database connection properties and exports it.
+    LoggerModule, // LoggerModule configures the 'WinstonModule' and exports it.
+    CacheConfigModule, // CacheConfigModule configures the 'CacheModule' and exports it.
+    RabbitManagerModule, // This module provides RabbitMq broker connection and communication functionalities.
+    TasksModule, // This module provides task management functionality.
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,6 +2,10 @@ import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nes
 import { catchError, Observable, tap } from "rxjs";
 import { Logger } from "winston";
 
+/**
+ * An interceptor dedicated to logging requests and responses(including errors).
+ */
+
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor{
     constructor(private logger: Logger){}
@@ -15,7 +19,7 @@ export class LoggingInterceptor implements NestInterceptor{
         const { method, originalUrl } = request;
         this.logger.info("Request", {method, url:originalUrl});
 
-        // Controller invocation
+        // Controller method invocation
         return next.handle().pipe(
             tap((response)=>{
                 // Response logging.
@@ -28,7 +32,7 @@ export class LoggingInterceptor implements NestInterceptor{
                 const errorResponseTime = Date.now() - requestReceivedAt;
                 const status = err.status || 500;
                 this.logger.error("Error" , {method, url:originalUrl, status, errorResponseTime, errorMessage:err.message});
-                // Re-throw
+                // Re-throw the error
                 throw err;
             })
         );
