@@ -27,7 +27,7 @@ Ensure that you have the following installed:
 - **Redis**
 - **Rabbit MQ**
 
-You may find quick setup instructions for the external services using Docker in [External Services](#external-services) section.
+You may find quick setup instructions for the external services using Docker in [External Services](#connecting-to-external-services) section.
 
 ---
 ## Getting started
@@ -76,7 +76,7 @@ WINSTON_LOG_DIR=./winston-logs
 
 ---
 ## Running the application
-**Note:** Make sure that all the required external services are up and running. See the [External Services](#external-services) section.
+**Note:** Make sure that all the required external services are up and running. See the [External Services](#connecting-to-external-services) section.
 
 ### Using PM2
 PM2 is used to manage the application processes.
