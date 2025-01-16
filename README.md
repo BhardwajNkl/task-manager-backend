@@ -12,9 +12,9 @@ This is a backend service for task management. This service exposes APIs to crea
 4. [Running The Application](#running-the-application)
     - Using PM2
 5. [Connecting to External Services](#connecting-to-external-services)
-    - [MySQL](mysql)
-    - [Redis](redis)
-    - [RabbitMQ](rabbitmq)
+    - MySQL
+    - Redis
+    - RabbitMQ
 6. [Licence](#license)
 ---
 
