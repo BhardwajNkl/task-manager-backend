@@ -142,4 +142,4 @@ docker run -d --hostname rabbit-server --name rabbitmq -p 5672:5672 -p 15672:156
 ---
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
