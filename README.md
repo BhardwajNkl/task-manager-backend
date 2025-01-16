@@ -127,7 +127,7 @@ docker run -d --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql
 #### Create a database to be used by the application.
 Login into the MySQL server, and create a database.
 ```
-CREATE DATABASE task-manager-db;
+CREATE DATABASE task-manager-nest;
 ```
 
 **NOTE**: Make sure that you provide correct database configurations in the project's *.env* file.
