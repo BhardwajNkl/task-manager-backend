@@ -15,6 +15,7 @@ This is a backend service for task management. This service exposes APIs to crea
     - [MySQL](mysql)
     - [Redis](redis)
     - [RabbitMQ](rabbitmq)
+6. [Licence](#license)
 ---
 
 ## Prerequisites
