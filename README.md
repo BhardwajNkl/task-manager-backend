@@ -75,6 +75,8 @@ WINSTON_LOG_DIR=./winston-logs
 
 ---
 ## Running the application
+**Note:** Make sure that all the required external services are up and running. See the [External Services](#external-services) section.
+
 ### Using PM2
 PM2 is used to manage the application processes.
 
@@ -107,3 +109,36 @@ pm2 stop ecosystem.config.js
 
 ---
 ## Connecting to External Services
+### MySQL
+#### Install MySQL locally. Or, use a Docker container to run it.
+```
+docker run -d --name mysql-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql
+```
+**NOTE:** While running the container, you can provide any root password of your choice(in place of *root*) and you may also use a different port number.
+
+#### Create a database to be used by the application.
+Login into the MySQL server, and create a database.
+```
+CREATE DATABASE task-manager-db;
+```
+
+**NOTE**: Make sure that you provide correct database configurations in the project's *.env* file.
+
+### Redis
+Install Redis locally. Or, you can use a Docker container.
+```
+docker run -d --name redis-server -p 6379:6379 redis
+```
+**NOTE**: Make sure that you provide correct Redis configurations in the project's *.env* file.
+
+### RabbitMQ
+Install RabbitMQ locally. Or, you can again use a Docker container.
+```
+docker run -d --hostname rabbit-server --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+```
+**NOTE**: Make sure that you provide correct RabbitMQ configurations in the project's *.env* file.
+
+---
+
+## License
+This project is licensed under the MIT License.
