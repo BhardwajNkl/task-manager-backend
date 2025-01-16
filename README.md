@@ -4,8 +4,8 @@ This is a backend service for task management.
 ## Table of contents
 1. [Prerequisites](#prerequisites)
 2. [Getting Started](#getting-started)
-    - [Clone the repository](clone-the-repository)
-    - [Install dependencies](install-dependencies)
+    - [Clone The Repository](clone-the-repository)
+    - [Install Dependencies](install-dependencies)
 3. [Configuration](#configuration)
     - [Environment variables](environment-variables)
     - [Example '.env' file](example-env-file)
