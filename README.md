@@ -1,5 +1,5 @@
 # Task Manager
-This is a backend service for task management.
+This is a backend service for task management. This service exposes APIs to create, fetch, update and delete tasks.
 
 ## Table of contents
 1. [Prerequisites](#prerequisites)
@@ -7,11 +7,11 @@ This is a backend service for task management.
     - Download The Project
     - Install Dependencies
 3. [Configuration](#configuration)
-    - Environment variables
-    - Example '.env' file
-4. [Running the application](#running-the-application)
+    - Environment Variables
+    - Example '.env' File
+4. [Running The Application](#running-the-application)
     - Using PM2
-5. [External services](#external-services)
+5. [Connecting to External Services](#connecting-to-external-services)
     - [MySQL](mysql)
     - [Redis](redis)
     - [RabbitMQ](rabbitmq)
@@ -30,10 +30,10 @@ You may find quick setup instructions for the external services using Docker in 
 
 ---
 ## Getting started
-### Download the project
+### Download The Project
 The project is not available in public domain. So, you need to get it from the developers.
 
-### Install dependencies
+### Install Dependencies
 Once the download is done, open the project folder inside a command prompt. And install application's dependencies using the following command.
 ```
 npm install
@@ -42,10 +42,10 @@ npm install
 ---
 
 ## Configuration
-### Environment variables
-The application requires an **.env** file for configuration. Create a **.env** file in the root directory of the project and configure the following variables:
+### Environment Variables
+The application requires a **.env** file for configuration. We have already provided a sample **.env** file in the root directory of the project. Modify it as per your setup.
 
-### Example *.env* file:
+### Example *.env* File:
 ```
 # App configuration variables
 APP_NAME=task-manager
@@ -89,14 +89,13 @@ npm run build
 ```
 
 **Start the application**
-```
-```
+
 We have provided a PM2 configuration file with the project. You may modify it as per the requirement. This file can be used to start application instance.
 ```
 pm2 start ecosystem.config.js
 ```
 
-**Monitor the application**
+**You can monitor the application using the below command**
 ```
 pm2 monit
 ```
@@ -107,4 +106,4 @@ pm2 stop ecosystem.config.js
 ```
 
 ---
-## External services
+## External Services
