@@ -4,7 +4,7 @@ This is a backend service for task management. This service exposes APIs to crea
 ## Table of contents
 1. [Prerequisites](#prerequisites)
 2. [Getting Started](#getting-started)
-    - Download The Project
+    - Clone The Repository
     - Install Dependencies
 3. [Configuration](#configuration)
     - Environment Variables
@@ -31,11 +31,18 @@ You may find quick setup instructions for the external services using Docker in 
 
 ---
 ## Getting started
-### Download The Project
-The project is not available in public domain. So, you need to get it from the developers.
+### Clone The Repository
+```
+git clone https://github.com/BhardwajNkl/task-manager-backend.git
+```
 
 ### Install Dependencies
-Once the download is done, open the project folder inside a command prompt. And install application's dependencies using the following command.
+Enter project root dirctory.
+```
+cd task-manager-backend
+```
+
+Install dependencies using the following command.
 ```
 npm install
 ```
