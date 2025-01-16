@@ -11,7 +11,7 @@ import { HttpAdapterHost } from '@nestjs/core';
 import { DatabaseError, ValidationError } from 'sequelize';
 
 /**
- * An exceptions filter which catches all exceptions.
+ * An exception filter which catches all exceptions.
  */
 
 @Catch()

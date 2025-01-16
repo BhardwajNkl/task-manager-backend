@@ -20,6 +20,7 @@ export class TasksController {
 
     /**
      * Create task.
+     * 
      * This endpoint is used to create a new task by using the data provided in request body.
      * 
      * @param createTaskDto The DTO containing task details. This is validated using the 'ValidationPipe' as per the checks defined in the 'CreateTaskDto'. 
@@ -32,20 +33,22 @@ export class TasksController {
 
     /**
      * Get all tasks.
+     * 
      * This endpoint retrieves all tasks in the system.
      * This API's response is cached with a 1 minute TTL duration. So, we get cached results if present.
      * 
      * @returns The list of tasks.
      */
     @Get()
-    @UseInterceptors(CacheInterceptor)
-    @CacheTTL(60000) // 1 Minute expiration.
+    @UseInterceptors(CacheInterceptor) // Caching the results of this API.
+    @CacheTTL(60000) // 1 Minute cache expiration.
     async getTasks():Promise<Task[]>{
         return this.tasksService.getTasks();
     }
 
     /**
-     * Get a task by Id.
+     * Get task by Id.
+     * 
      * This endpoint fetches a task based on it's Id.
      * 
      * @param id The Id of the task to fetch. It is received as a string but converted to number using 'ParseIntPipe'.
@@ -58,6 +61,7 @@ export class TasksController {
 
     /**
      * Update a task.
+     * 
      * This endpoint updates the details of an existing task identified by its ID.
      * 
      * @param updateTaskDto The DTO containing the Id of the task and other details to be updated. This is validated using the 'ValidationPipe' as per the checks defined in the 'UpdateTaskDto'. 
@@ -69,7 +73,8 @@ export class TasksController {
     }
 
     /**
-     * Delete a task by Id.
+     * Delete task.
+     * 
      * This endpoint deletes a task based on it's Id.
      * 
      * @param id The Id of the task to be deleted. It is received as a string but converted to number using 'ParseIntPipe'. 

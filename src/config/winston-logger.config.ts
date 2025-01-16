@@ -11,12 +11,12 @@ import * as path from 'path';
  * @returns {Promise<winston.Logger>} : A winston logger intance.
  */
 export const getWinstonLogger= async (configService: ConfigService):Promise<winston.Logger> =>{
-    // Create a dedicated folder to put log files.
+    // Create a dedicated directory to put log files.
     const logDirectory = configService.get<string>('WINSTON_LOG_DIR');
     try{
-        await fs.access(logDirectory); // Check if the folder already exists.
+        await fs.access(logDirectory); // Check if the directory already exists.
     } catch(error){
-        await fs.mkdir(logDirectory); // Create folder.
+        await fs.mkdir(logDirectory); // Create directory.
     }
     
     const logger = winston.createLogger({

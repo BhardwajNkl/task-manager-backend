@@ -13,7 +13,7 @@ export class Task extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column
-    id:number; // Primary key.
+    id:number; // Id of the task. Primary key.
 
     @Column({
         allowNull:false, // Title must be provided.

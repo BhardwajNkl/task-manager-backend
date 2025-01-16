@@ -12,7 +12,7 @@ type dbDialect = 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql';
  * Method for configuring sequelize module registration options object.
  * 
  * @param {configService} configService : instance of the ConfigService used to retrieve environment variables.
- * @returns {SequelizeModuleOptions} : An object containing Sequelize connection configurations.
+ * @returns {SequelizeModuleOptions} : An object containing Sequelize configurations for database connection.
  */
 export const getSequelizeConfig = (configService: ConfigService): SequelizeModuleOptions => {
     const configOptionsObject:SequelizeModuleOptions = {
