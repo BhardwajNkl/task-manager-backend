@@ -44,7 +44,7 @@ npm install
 
 ## Configuration
 ### Environment Variables
-The application requires a **.env** file for configuration. We have already provided a sample **.env** file in the root directory of the project. Modify it as per your setup.
+The application requires a **.env** file for configuration. Create a **.env** file in the root directory of the project. A sample configuration is provided below, modify it for your setup and use. 
 
 ### Example *.env* File:
 ```
